@@ -30,7 +30,9 @@ import (
 var c Config
 
 func TestLoad(t *testing.T) {
-	c.Load("./test.conf")
+	if err := c.Load("./test.conf"); err != nil {
+		t.Error(err)
+	}
 }
 
 func TestString(t *testing.T) {

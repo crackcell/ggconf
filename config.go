@@ -36,11 +36,12 @@ type Config struct {
 	m  map[string]string
 }
 
-func (this *Config) Load(path string) {
+func (this *Config) Load(path string) error {
 	this.init()
 	if err := this.parse(path); err != nil {
-		panic(err)
+		return err
 	}
+	return nil
 }
 
 func (this *Config) GetString(key string) (string, error) {
