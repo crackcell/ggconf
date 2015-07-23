@@ -107,7 +107,7 @@ func (this *Config) parse(path string) error {
 }
 
 func (this *Config) parseLine(line string) {
-	tokens := strings.Split(line, SEP)
+	tokens := strings.SplitN(line, SEP, 2)
 	if len(tokens) != 2 {
 		return
 	}
